@@ -13,6 +13,9 @@ const Home = () => {
   useEffect(() => {
     // probably should be moved into a service
     // for time sake, I'll leave it here
+    // also, this could be using SWR or react-query
+    // to avoid using effects and just have a one liner like this
+    // const { data: items } = useSWR("/posts?_limit=2000", fetcher)
     api
       .get("/posts?_limit=2000")
       .then((res) => setItems(res.data))
